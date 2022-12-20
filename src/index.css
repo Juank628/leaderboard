@@ -36,13 +36,13 @@ li {
 }
 
 .render-item {
-    width: 200px;
-    padding: 2px;
+  width: 200px;
+  padding: 2px;
 }
 
 .render-item:nth-child(odd) {
-    color: white;
-    background-color: gray;
+  color: white;
+  background-color: gray;
 }
 
 .form-container {

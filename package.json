@@ -6,7 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.config.js",
-    "dev": "webpack serve"
+    "dev": "webpack serve",
+    "lintStyle": "stylelint '**/*.{css,scss}'",
+    "lintHint": "hint .",
+    "lintEs": "eslint .",
+    "lint": "npm run lintEs && npm run lintStyle && npm run lintHint"
   },
   "repository": {
     "type": "git",
