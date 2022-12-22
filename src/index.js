@@ -2,23 +2,53 @@ import './index.css';
 import Collection from './modules/Collection.js';
 import Render from './modules/Render.js';
 
-const leaders = new Collection([
-  {
-    name: 'Juan',
-    score: 100,
-  },
-  {
-    name: 'Carlos',
-    score: 90,
-  },
-  {
-    name: 'Nicole',
-    score: 80,
-  },
-]);
+const userInput = document.getElementById('userInput');
+const scoreInput = document.getElementById('scoreInput');
+const refreshBtn = document.getElementById('refreshBtn');
 
+const leaders = new Collection([]);
 const render = new Render(document.getElementById('leadersList'));
 
-window.addEventListener('load', () => {
+const apiURL = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/rIdJ3vDCDXKu8b40DeTp';
+
+const readApiScores = async () => {
+  const res = await fetch(`${apiURL}/scores`);
+  const data = await res.json();
+  return data.result;
+};
+
+const createApiScore = async (data) => {
+  const res = await fetch(`${apiURL}/scores`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  });
+  return res;
+};
+
+window.addEventListener('load', async () => {
+  const data = await readApiScores();
+  leaders.setItems(data);
+  render.show(leaders.getItems());
+});
+
+window.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const newScore = {
+    user: userInput.value,
+    score: scoreInput.value,
+  };
+  const res = await createApiScore(newScore);
+
+  if (res.status >= 200 && res.status <= 299) {
+    leaders.addItem(newScore);
+    render.show(leaders.getItems());
+  }
+});
+
+refreshBtn.addEventListener('click', async () => {
+  await readApiScores();
   render.show(leaders.getItems());
 });
