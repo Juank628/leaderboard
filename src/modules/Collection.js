@@ -5,7 +5,7 @@ export default class Collection {
 
   addItem = (item) => {
     this.items.push(item);
-    this.items.sort((a, b) => a.score - b.score);
+    this.items.sort((a, b) => b.score - a.score);
   }
 
   getItems = () => this.items;
