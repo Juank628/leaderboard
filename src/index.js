@@ -49,6 +49,9 @@ window.addEventListener('submit', async (e) => {
 });
 
 refreshBtn.addEventListener('click', async () => {
-  await readApiScores();
+  leaders.setItems([]);
+  render.show(leaders.getItems());
+  const data = await readApiScores();
+  leaders.setItems(data);
   render.show(leaders.getItems());
 });

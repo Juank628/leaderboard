@@ -11,8 +11,8 @@
 
 # 📗 Table of Contents
 
-- [� Table of Contents](#-table-of-contents)
-- [📖 To-Do List ](#-to-do-list-)
+- [📗 Table of Contents](#-table-of-contents)
+- [📖 Leaderboard ](#-leaderboard-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -29,7 +29,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 To-Do List <a name="about-project"></a>
+# 📖 Leaderboard <a name="about-project"></a>
 
 "leader board" is a simple website that displays a list of leaders and allows you to add players and scores to that list. By building this application, I learned how to manage data using JavaScript async code.
 
