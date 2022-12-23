@@ -22,12 +22,8 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(png|jpe?g|gif)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-          },
-        ],
+        test: /\.(jpg|png|svg|gif)$/,
+        type: 'asset/resource',
       },
     ],
   },
@@ -42,21 +38,3 @@ module.exports = {
     historyApiFallback: true,
   },
 };
-
-/*
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-new HtmlWebpackPlugin({
-template: './src/index.html',
-}),
-use: [{
-loader: MiniCssExtractPlugin.loader,
-options: { publicPath: path.relative(__dirname, '') },
-},
-'css-loader',
-],
-{
-test: /\.(png|svg|jpg|jpeg|gif)$/,
-type: 'asset/resource',
-generator: { filename: './img/[name][ext]' },
-},
-*/
